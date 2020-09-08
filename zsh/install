@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+antibody bundle < "$DOTFILES/zsh/plugins.txt" > "$DOTFILES/zsh/zsh_plugins_compiled.sh"

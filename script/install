@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if ! command -v zsh > /dev/null; then
+  echo "zsh must be installed."
+  exit 1;
+fi;
+
+cur_dir="$(cd "$(dirname "$0")" && pwd -P)/$(basename "$1")"
+
+zsh "$cur_dir/bootstrap"
+
+
+

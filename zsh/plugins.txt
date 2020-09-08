@@ -1,0 +1,16 @@
+# ZSH plugins
+
+# Autosuggestions and completion
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+
+# Async for the Pure prompt
+mafredri/zsh-async
+
+# Pure prompt
+sindresorhus/pure
+
+# Must be the last plugin!
+zsh-users/zsh-syntax-highlighting
+

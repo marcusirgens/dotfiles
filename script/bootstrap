@@ -1,0 +1,36 @@
+#!/bin/zsh
+# Installs these dotfiles
+
+# check dependencies
+deps=("brew" "antibody" "git")
+
+for dep in "${deps[@]}"; do
+  if ! command -v "$dep" > /dev/null; then
+    echo "$dep must be installed."
+    exit 1;
+  fi;
+done;
+
+# Get the path for the dotfiles
+# https://stackoverflow.com/a/26727223
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd -P)/$(basename "$1")"
+DOTFILES="$(dirname "$SCRIPT_DIR")"
+cd "$DOTFILES";
+
+mkdir -p "$HOME/.zsh_completion"
+
+# Create a file for environment stuff
+echo "export DOTFILES=\"$DOTFILES\"" > "$HOME/.zsh_env"
+echo "export ZSH_COMPLETION_DIR=\"$HOME/.zsh_completion\"" >> "$HOME/.zsh_env"
+
+
+# Don't overwrite backups
+if [ -f "$HOME/.zshrc.bak" ]; then
+  echo "Refusing to overwrite ~/.zshrc.bak"
+  exit;
+fi
+
+[ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+ln -s "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+
+source "$DOTFILES/zsh/install"
