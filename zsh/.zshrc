@@ -1,6 +1,3 @@
-# This step must happen first
-sh "$HOME/.zsh/init.sh"
-
 # Environment
 source "$HOME/.zsh_env"
 PATH="$PATH:$HOME/.bin"
@@ -10,16 +7,18 @@ source "$DOTFILES/zsh/zsh_plugins_compiled.sh"
 
 # Enable completion
 autoload -U compinit
-compinit
+compinit -i
 
 # This makes you able to tab through the "menu" of completions
 zstyle ':completion:*' menu select
 
 # load every completion after autocomplete loads
-completion_files=($ZSH_COMPLETION_DIR/*.zsh)
-for file in ${completion_files}; do
-  source "$file"
-done
+if [ "$(ls -A $ZSH_COMPLETION_DIR)" ]; then
+  completion_files=($ZSH_COMPLETION_DIR/*.zsh)
+  for file in ${completion_files}; do
+    source "$file"
+  done
+fi
 
 # load every completion after autocomplete loads
 source_files=($DOTFILES/**/*.zsh)
