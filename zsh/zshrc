@@ -32,6 +32,9 @@ source "$DOTFILE_DIR/go/conf.zsh"
 # Set up Node
 source "$DOTFILE_DIR/node/conf.zsh"
 
+# Set up docker
+source-all $DOTFILE_DIR/docker/functions/*.zsh
+
 # This makes you able to tab through the "menu" of completions
 zstyle ':completion:*' menu select
 
