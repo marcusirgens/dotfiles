@@ -26,7 +26,7 @@ fi
 # Install the syntax highlighting plugin
 zsh "$ZSH_DIR/highlighting.zsh"
 
-source "$ZSH_FUNCTIONS/antibody.zsh"
+source "$ZSH_FUNCTIONS/antibody-rebundle.zsh"
 antibody-rebundle
 
 # Forcefully recreate completions
