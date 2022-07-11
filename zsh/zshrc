@@ -21,7 +21,7 @@ compinit
 source "$DOTFILE_DIR/zsh/history.zsh"
 
 # Set up the gcloud CLI
-source "$DOTFILE_DIR/gcloud/path.zsh"
+source "$DOTFILE_DIR/gcloud/conf.zsh"
 
 # Set up the aws-vault tool
 source "$DOTFILE_DIR/aws-vault/conf.zsh"
