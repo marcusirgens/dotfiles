@@ -14,6 +14,9 @@ gcg user.name "Marcus Pettersen Irgens"
 gcg user.email "m@mrcus.dev"
 gcg init.defaultBranch "main"
 
+# Use difftastic for great diffs
+gcg diff.external difft
+
 # Create a global gitignore if missing
 [ -d "$(dirname "$GITIGNORE")" ] || mkdir -p "$(dirname "$GITIGNORE")"
 [ -f "$GITIGNORE" ] || touch "$GITIGNORE"
