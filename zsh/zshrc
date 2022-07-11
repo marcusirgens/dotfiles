@@ -22,7 +22,7 @@ source "$DOTFILE_DIR/aws-vault/conf.zsh"         # Set up the aws-vault tool
 source "$DOTFILE_DIR/go/conf.zsh"                # Set up Go
 source "$DOTFILE_DIR/node/conf.zsh"              # Set up Node
 source "$DOTFILE_DIR/git/conf.zsh"               # Set up Git
-source "$DOTFILE_DIR/zsh/qol.zsh"                # Set up some QOL improvements
+source "$DOTFILE_DIR/zsh/qol/conf.zsh"           # Set up some QOL improvements
 source-all $DOTFILE_DIR/docker/functions/*.zsh   # Set up docker
 
 # This must be loaded last.
