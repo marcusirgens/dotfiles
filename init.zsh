@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -eu;
+
 # init sets up the Mac.
 export DOTFILE_DIR="${0:a:h}"
 
