@@ -32,6 +32,9 @@ source "$DOTFILE_DIR/go/conf.zsh"
 # Set up Node
 source "$DOTFILE_DIR/node/conf.zsh"
 
+# Set up Git
+source "$DOTFILE_DIR/git/conf.zsh"
+
 # Set up docker
 source-all $DOTFILE_DIR/docker/functions/*.zsh
 
