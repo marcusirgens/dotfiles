@@ -16,30 +16,14 @@ fi
 autoload -Uz compinit;
 compinit
 
-# History search
-# CD -
-source "$DOTFILE_DIR/zsh/history.zsh"
-
-# Set up the gcloud CLI
-source "$DOTFILE_DIR/gcloud/conf.zsh"
-
-# Set up the aws-vault tool
-source "$DOTFILE_DIR/aws-vault/conf.zsh"
-
-# Set up Go
-source "$DOTFILE_DIR/go/conf.zsh"
-
-# Set up Node
-source "$DOTFILE_DIR/node/conf.zsh"
-
-# Set up Git
-source "$DOTFILE_DIR/git/conf.zsh"
-
-# Set up some QOL improvements
-source "$DOTFILE_DIR/zsh/qol.zsh"
-
-# Set up docker
-source-all $DOTFILE_DIR/docker/functions/*.zsh
+source "$DOTFILE_DIR/zsh/history.zsh"            # Set up history search
+source "$DOTFILE_DIR/gcloud/conf.zsh"            # Set up the gcloud CLI
+source "$DOTFILE_DIR/aws-vault/conf.zsh"         # Set up the aws-vault tool
+source "$DOTFILE_DIR/go/conf.zsh"                # Set up Go
+source "$DOTFILE_DIR/node/conf.zsh"              # Set up Node
+source "$DOTFILE_DIR/git/conf.zsh"               # Set up Git
+source "$DOTFILE_DIR/zsh/qol.zsh"                # Set up some QOL improvements
+source-all $DOTFILE_DIR/docker/functions/*.zsh   # Set up docker
 
 # This must be loaded last.
 source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
