@@ -1,0 +1,2 @@
+# Installs the GitHub CLI
+brew "gh"

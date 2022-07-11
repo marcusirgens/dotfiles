@@ -23,6 +23,9 @@ zsh "$DOTFILE_DIR/security/install.zsh"
 # Set up git
 zsh "$DOTFILE_DIR/git/install.zsh"
 
+# Set up GitHub
+zsh "$DOTFILE_DIR/github/install.zsh"
+
 # Set up zsh
 zsh "$DOTFILE_DIR/zsh/install.zsh"
 
