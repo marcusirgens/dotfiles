@@ -30,3 +30,4 @@ zsh "$DOTFILE_DIR/aws-vault/install.zsh"  # Set up aws-vault
 zsh "$DOTFILE_DIR/go/install.zsh"         # Set up go
 zsh "$DOTFILE_DIR/node/install.zsh"       # Set up node
 zsh "$DOTFILE_DIR/docker/install.zsh"     # Set up Docker
+zsh "$DOTFILE_DIR/zsh/qol/install.zsh"    # Set up QOL stuff

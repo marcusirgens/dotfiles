@@ -35,15 +35,11 @@ source "$DOTFILE_DIR/node/conf.zsh"
 # Set up Git
 source "$DOTFILE_DIR/git/conf.zsh"
 
+# Set up some QOL improvements
+source "$DOTFILE_DIR/zsh/qol.zsh"
+
 # Set up docker
 source-all $DOTFILE_DIR/docker/functions/*.zsh
-
-# This makes you able to tab through the "menu" of completions
-zstyle ':completion:*' menu select
-
-# LS should have colors
-export COLORTERM="1"
-alias ls='ls --color=auto'
 
 # This must be loaded last.
 source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
