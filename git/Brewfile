@@ -1,0 +1,2 @@
+# Reinstall Git to replace the macOS default.
+brew "git"

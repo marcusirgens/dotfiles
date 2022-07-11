@@ -1,0 +1,39 @@
+#!/bin/zshrc
+# source this file from your ~/.zshrc
+
+[ ! -z "$DOTFILE_DIR" ] || (echo "DOTFILE_DIR not set" && exit 1)
+
+# Regenerate with antibody-rebundle
+source "$ZSH_PLUGIN_DIR/plugins.zsh"
+
+source "$DOTFILE_DIR/kubectl/path.zsh"
+
+if [ -d "$ZSH_COMPLETION_DIR" ]; then
+    fpath=("$ZSH_COMPLETION_DIR" $fpath)
+fi
+
+# Enable completions
+autoload -Uz compinit;
+compinit
+
+# History search
+# CD -
+source "$DOTFILE_DIR/zsh/history.zsh"
+
+# Set up the gcloud CLI
+source "$DOTFILE_DIR/gcloud/path.zsh"
+
+# Set up the aws-vault tool
+source "$DOTFILE_DIR/aws-vault/conf.zsh"
+
+# Set up Go
+source "$DOTFILE_DIR/go/conf.zsh"
+
+# Set up Node
+source "$DOTFILE_DIR/node/conf.zsh"
+
+# This makes you able to tab through the "menu" of completions
+zstyle ':completion:*' menu select
+
+# This must be loaded last.
+source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

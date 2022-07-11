@@ -1,0 +1,17 @@
+# source this file from your ~/.zprofile
+
+[ ! -z "$DOTFILE_DIR" ] || (echo "DOTFILE_DIR not set" && exit 1)
+
+export PATH="$PATH:$HOME/.local/bin"
+source "$DOTFILE_DIR/zsh/globals.zsh"
+
+# Homebrew support
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+ZSH_FUNCTIONS="$DOTFILE_DIR/zsh/functions/"
+
+source "$ZSH_FUNCTIONS/dotenv.zsh"
+source "$ZSH_FUNCTIONS/antibody.zsh"
+source "$ZSH_FUNCTIONS/sourcing.zsh"
+
+source-all $DOTFILE_DIR/aws-vault/functions/*.zsh
