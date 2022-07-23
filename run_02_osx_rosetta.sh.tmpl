@@ -1,13 +1,15 @@
 #!/bin/sh
 set -eu;
 
-# start not darwin {{ if not (eq .chezmoi.os "darwin") }}
-exit;
-# end not darwin {{ end }}
+os="{{ .chezmoi.os }}"
+if [ $os != "darwin" ]; then
+    exit
+fi
 
-# start not arm64 {{ if not (eq .chezmoi.arch "arm64") }}
-exit;
-# end not arm64 {{ end }}
+arch="{{ .chezmoi.arch }}"
+if [ $arch != "arch" ]; then
+    exit
+fi
 
 if [ ! -f "/Library/Apple/usr/share/rosetta/rosetta" ]; then
     sudo softwareupdate --install-rosetta --agree-to-license

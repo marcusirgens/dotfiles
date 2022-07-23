@@ -1,9 +1,10 @@
 #!/bin/sh
 set -eu;
 
-# start not darwin {{ if not (eq .chezmoi.os "darwin") }}
-exit
-# end not darwin {{ end }}
+os="{{ .chezmoi.os }}"
+if [ $os != "darwin" ]; then
+  exit
+fi
 
 # Install homebrew.
 if ! (command -v brew > /dev/null); then

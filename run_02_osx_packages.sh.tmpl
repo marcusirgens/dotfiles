@@ -1,9 +1,10 @@
 #!/bin/sh
 set -eu;
 
-# start not darwin {{ if not (eq .chezmoi.os "darwin") }}
-exit;
-# end not darwin {{ end }}
+os="{{ .chezmoi.os }}"
+if [ $os != "darwin" ]; then
+  exit
+fi
 
 brew bundle --no-lock --quiet --no-upgrade --file=/dev/stdin <<EOF
 # Reinstall Git to replace the macOS default.
