@@ -1,0 +1,9 @@
+[core]
+project = app-iterate
+account = marcus@iterate.no
+disable_usage_reporting = true
+
+[compute]
+zone = europe-west1-d
+region = europe-west1
+

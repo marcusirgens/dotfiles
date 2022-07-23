@@ -1,0 +1,47 @@
+#!/bin/sh
+set -eu;
+
+# start not darwin {{ if not (eq .chezmoi.os "darwin") }}
+exit;
+# end not darwin {{ end }}
+
+brew bundle --no-lock --quiet --no-upgrade --file=/dev/stdin <<EOF
+# Reinstall Git to replace the macOS default.
+brew "git"
+
+# Difftastic gives amazing diffs
+brew "difftastic"
+
+# Needed for GPG signing.
+cask "gpg-suite-no-mail"
+
+# Needed for credentials
+cask "1password/tap/1password-cli"
+
+# Certificates for local development
+brew "mkcert"
+
+# Cloud providers
+brew "awscli"
+cask "aws-vault"
+cask "google-cloud-sdk"
+brew "flyctl"
+
+# GitHub CLI
+brew "gh"
+
+# Go
+brew "go"
+brew "golangci-lint"
+
+brew "kubectl"
+
+# Install the Node version manager "n"
+brew "n"
+
+brew "vim"     # Just installing vim via homebrew powers it up quite a lot
+brew "nano"    # Sorry, nerds
+brew "thefuck" # I hate the name, but it does what it does.
+brew "antibody"
+
+EOF

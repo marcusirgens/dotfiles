@@ -1,0 +1,24 @@
+source "{{- .chezmoi.homeDir -}}{{- .zsh.plugins -}}/plugins.zsh"
+for f in $HOME/.zshrc.d/*.zsh; do
+  source "$f";
+done
+
+for f in $HOME/.zsh_functions/*.zsh; do
+  source "$f";
+done
+
+completions="{{- .chezmoi.homeDir -}}{{ .zsh.completions }}"
+if [ -d "$completions" ]; then
+    fpath=("$completions" $fpath)
+fi
+
+if [ -f "$HOME/.localrc" ]; then
+  source "$HOME/.localrc"
+fi
+
+# Enable completions
+autoload -Uz compinit;
+compinit
+
+# This must be loaded last.
+source "{{- .chezmoi.homeDir -}}{{ .zsh.plugins }}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

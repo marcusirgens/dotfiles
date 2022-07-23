@@ -1,0 +1,1 @@
+echoerr(){ >&2 echo $@; }

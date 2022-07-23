@@ -1,0 +1,56 @@
+#!/bin/sh
+
+export PROFILE_NAME="iterate"
+export KUBECTL_CTX_FULL="gke_app-iterate_europe-west1-d_iterapp-gke"
+export KUBECTL_CTX="iterapp"
+export GCLOUD_CLUSTER_NAME="iterapp-gke"
+
+gcloud_iterate_auth() {
+ gcloud_iterate_activate
+ gcloud auth login
+}
+
+gcloud_iterate_activate() {
+  gcloud config configurations activate "$PROFILE_NAME"
+}
+
+kubectl_prune_contexts() {
+  kubectl config delete-context "$KUBECTL_CTX_FULL" > /dev/null || true
+  kubectl config delete-context "$KUBECTL_CTX" > /dev/null || true
+}
+
+gcloud_container_auth() {
+  gcloud container clusters get-credentials "$GCLOUD_CLUSTER_NAME"
+}
+
+configure() {
+  kubectl_prune_contexts
+  gcloud_iterate_auth
+  gcloud_container_auth
+  kubectl config rename-context "$KUBECTL_CTX_FULL" "$KUBECTL_CTX"
+}
+
+activate() {
+  gcloud_iterate_auth
+  kubectl config use-context "$KUBECTL_CTX"
+}
+
+help() {
+  cat <<EOF 1>&2;
+Usage:
+  kubectl iterate configure            # set up the iterapp cluster in kubectl
+  kubectl iterate activate             # log in and activate the iterapp cluster
+EOF
+}
+
+case $1 in
+  "configure" )
+    configure
+  ;;
+  "activate" )
+    activate
+  ;;
+  * )
+    help
+  ;;
+esac

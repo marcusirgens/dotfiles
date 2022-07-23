@@ -1,5 +1,0 @@
-# Reinstall Git to replace the macOS default.
-brew "git"
-
-# Difftastic gives amazing diffs
-brew "difftastic"

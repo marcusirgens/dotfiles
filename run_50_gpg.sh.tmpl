@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu;
+
+if [ ! -z "{{.gpg.key}}" ]; then
+   if (gpg --list-secret-keys --keyid-format=long | grep "{{.gpg.key}}" -q); then
+     exit
+   fi
+fi
+
+echo "You might now be prompted for the password for the GPG key for m@mrcus.dev."
+echo "$ op item get hkzz27emsvyyklc57n2dwwpi7i --vault 6tpnuxuas6hwv7hdegcf2zc4u4 --format json --fields m725gtuo22cfyotmtbxd76ndem | jq .value -r"
+cat <<EOF | gpg --import-options restore --import
+{{ onepasswordDocument "hkzz27emsvyyklc57n2dwwpi7i" "6tpnuxuas6hwv7hdegcf2zc4u4" }}
+EOF
+

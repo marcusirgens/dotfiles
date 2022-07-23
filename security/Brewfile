@@ -1,5 +1,0 @@
-# Needed for GPG signing.
-cask "gpg-suite-no-mail"
-
-# Needed for credentials
-cask "1password/tap/1password-cli"

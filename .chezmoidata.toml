@@ -1,0 +1,9 @@
+[zsh]
+completions = "/.zsh_completions"
+plugins = "/.zsh_plugins"
+
+[kubectl]
+scripts = "$HOME/.local/share/kubectl-user"
+
+[gpg]
+key="0B6748A2D3B21C41"

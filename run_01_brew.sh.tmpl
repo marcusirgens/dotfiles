@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu;
+
+# start not darwin {{ if not (eq .chezmoi.os "darwin") }}
+exit
+# end not darwin {{ end }}
+
+# Install homebrew.
+if ! (command -v brew > /dev/null); then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+
+# Double check for command line tools
+if ! (xcode-select -p > /dev/null); then
+  echo "Install xcode using brew!"
+fi;

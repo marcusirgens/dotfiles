@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu;
+
+gh completion -s zsh > "{{- .chezmoi.homeDir -}}{{- .zsh.completions -}}/_gh";
