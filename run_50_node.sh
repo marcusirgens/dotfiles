@@ -1,7 +1,9 @@
 #!/bin/sh
 set -eu;
 
-if command -v n > /dev/null; then
+export N_PREFIX="{{.chezmoi.homeDir}}/{{.node.ndir}}"
+
+if ! command -v n > /dev/null; then
   n install lts --quiet --download
   n install latest --quiet --download
 fi
