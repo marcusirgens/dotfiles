@@ -5,6 +5,9 @@ if ! command -v go > /dev/null; then
   exit
 fi
 
+export GOPATH="$HOME/{{.go.path}}"
+export PATH="$GOPATH/bin:$PATH"
+
 if ! command -v godoc > /dev/null; then
   go install golang.org/x/tools/cmd/godoc@latest
 fi
