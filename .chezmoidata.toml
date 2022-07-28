@@ -1,7 +1,3 @@
-[zsh]
-completions = "/.zsh_completions"
-plugins = "/.zsh_plugins"
-
 [kubectl]
 scripts = "$HOME/.local/share/kubectl-user"
 
