@@ -1,4 +1,4 @@
-switch $(uname -s)
+switch "$(uname -s)"
     case "Darwin"
         # We could use brew --prefix openjdk, but it fails when java is not installed.
         if type -q brew
