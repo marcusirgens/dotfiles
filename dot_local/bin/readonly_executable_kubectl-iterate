@@ -6,8 +6,12 @@ export KUBECTL_CTX="iterapp"
 export GCLOUD_CLUSTER_NAME="iterapp-gke"
 
 gcloud_iterate_auth() {
- gcloud_iterate_activate
- gcloud auth login
+  gcloud_iterate_activate
+  if [ ! -z "$KUBECTL_ITERATE_ACCOUNT" ]; then
+    gcloud auth login --launch-browser --brief "$KUBECTL_ITERATE_ACCOUNT"
+  else
+    gcloud auth login
+  fi
 }
 
 gcloud_iterate_activate() {
@@ -49,6 +53,9 @@ case $1 in
   ;;
   "activate" )
     activate
+  ;;
+  "env" )
+    printenv
   ;;
   * )
     help
