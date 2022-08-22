@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu;
+
+os="{{ .chezmoi.os }}"
+if [ $os != "darwin" ]; then
+  exit
+fi
+
+brew bundle --no-lock --quiet --no-upgrade --file=/dev/stdin <<EOF
+brew "hashicorp/tap/consul"
+
+EOF
