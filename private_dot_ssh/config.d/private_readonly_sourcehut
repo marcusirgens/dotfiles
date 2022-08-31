@@ -1,0 +1,3 @@
+Host git.sr.ht
+        IdentityFile ~/.ssh/sourcehut.pub
+        IdentitiesOnly yes

@@ -1,0 +1,5 @@
+{{- range (onepassword "dhxv4we4gqd22bzuawacaajvxy" "6tpnuxuas6hwv7hdegcf2zc4u4").fields -}}
+    {{   if eq .id "public_key" -}}
+        {{     .value -}}
+    {{   end -}}
+{{ end }}
