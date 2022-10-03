@@ -4,6 +4,9 @@ scripts = "$HOME/.local/share/kubectl-user"
 [gpg]
 key="0B6748A2D3B21C41"
 
+[ssh]
+git_key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJFrzpDqU0vzfpu5YHoyO/2fl0U9NzuQhNKZUWvD5Kig"
+
 [node]
 ndir="node"
 
