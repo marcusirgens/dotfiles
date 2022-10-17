@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Default Light+",
+    "files.autoSave": "afterDelay",
+    "workbench.colorCustomizations": {
+    
+    },
+    "workbench.tree.indent": 16,
+    "editor.fontFamily": "Input Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13
+}
